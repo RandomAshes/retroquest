@@ -44,6 +44,10 @@ build.configure {
     dependsOn yarn_install
 }
 
+buildProd.configure {
+    dependsOn yarn_install
+}
+
 sonarqube {
     properties {
         property "sonar.projectName", "RetroQuest UI"
