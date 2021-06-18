@@ -30,6 +30,16 @@ task build(type: YarnTask) {
     outputs.dir('build')
 }
 
+task buildProd(type: YarnTask) {
+    args = ['build-prod']
+
+    inputs.files('package.json', 'yarn.lock', 'tsconfig.json')
+    inputs.dir('src')
+    inputs.dir(fileTree('node_modules').exclude('.cache'))
+
+    outputs.dir('build')
+}
+
 build.configure {
     dependsOn yarn_install
 }
