@@ -6,7 +6,7 @@
   "success_url": "/login",
   "addons": [
     {
-      "plan": "heroku-postgresql:hobby-basic",
+      "plan": "heroku-postgresql:hobby-dev",
       "options": {
         "version": "13"
       }
