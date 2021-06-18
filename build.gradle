@@ -4,5 +4,5 @@ plugins {
 }
 
 task stage(type: GradleBuild) {
-    tasks = [':ui:buildProd', ':api:build']
+    tasks = [':ui:buildProd', ':api:withPostgres', ':api:build']
 }
