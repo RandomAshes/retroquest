@@ -1,5 +1,15 @@
 {
   "name": "RetroQuest Sample",
   "description": "A running instance of the RetroQuest retrospective tool",
-  "repository": "https://github.com/FordLabs/retroquest"
+  "logo": "https://github.com/FordLabs/retroquest/blob/heroku-deploy/ui/src/assets/icons/icon-128x128.png?raw=true",
+  "repository": "https://github.com/FordLabs/retroquest",
+  "success_url": "/login",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-basic",
+      "options": {
+        "version": "13"
+      }
+    }
+  ]
 }
