@@ -1,0 +1,5 @@
+{
+  "name": "RetroQuest Sample",
+  "description": "A running instance of the RetroQuest retrospective tool",
+  "repository": "https://github.com/FordLabs/retroquest"
+}
