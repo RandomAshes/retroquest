@@ -14,7 +14,10 @@ If you are unfamiliar with what a retrospective is, it is a meeting that is held
 ![](https://user-images.githubusercontent.com/6293337/55166030-c8ccc600-5144-11e9-9156-e44c4a565020.png)
 
 ### Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.  
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes, 
+or you can use the below button to deploy a copy to Heroku to try out RetroQuest.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FordLabs/retroquest/tree/heroku-deploy)
 
 ### Dependencies
 What you need to install before building our project.  This guide will assume you have a basic understanding of Git operations.  
