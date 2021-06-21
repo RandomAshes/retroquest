@@ -10,6 +10,9 @@
       "options": {
         "version": "13"
       }
+    },
+    {
+      "plan": "scout:chair"
     }
   ]
 }
