@@ -20,6 +20,9 @@ module.exports = {
   ignorePatterns: ['projects/**/*', 'jest.config.js'],
   extends: ['prettier'],
   plugins: ['unused-imports'],
+  rules: {
+    semi: 2,
+  },
   overrides: [
     {
       files: ['*.ts'],
@@ -53,7 +56,6 @@ module.exports = {
         ],
         '@typescript-eslint/member-ordering': 'off',
         '@typescript-eslint/naming-convention': 'off',
-        'brace-style': ['error', '1tbs'],
         'id-blacklist': 'off',
         'id-match': 'off',
         'no-underscore-dangle': 'off',
