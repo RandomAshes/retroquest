@@ -22,6 +22,7 @@ module.exports = {
   plugins: ['unused-imports'],
   rules: {
     semi: 2,
+    'max-len': ['error', { code: 120 }],
   },
   overrides: [
     {
