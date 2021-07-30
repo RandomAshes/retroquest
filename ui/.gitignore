@@ -13,3 +13,5 @@ test-report.xml
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+storybook-static
