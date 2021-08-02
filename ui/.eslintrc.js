@@ -20,6 +20,13 @@ module.exports = {
   ignorePatterns: ['projects/**/*', 'jest.config.js'],
   extends: ['prettier'],
   plugins: ['unused-imports'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
   rules: {
     semi: 2,
     'max-len': ['error', { code: 120 }],
