@@ -95,7 +95,7 @@
     "cypress-jest-adapter": "^0.1.1",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
@@ -127,7 +127,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "*.{css,scss,sass}": "stylint --fix"
+    "*.{css,scss,sass}": "stylelint --fix"
   },
   "husky": {
     "hooks": {

@@ -30,6 +30,8 @@ import { UpdatePasswordComponent } from './pages/update-password/update-password
 import { CreateUserComponent } from './pages/create-user/create-user.component';
 import { UserViewComponent } from './pages/user-view/user-view.component';
 import { LoginUserComponent } from './pages/login-user/login-user.component';
+// @ts-ignore
+import { MyComponentWrapperComponent } from './pages/my-react-page/MyReactComponentWrapper';
 
 @NgModule({
   imports: [
@@ -38,7 +40,7 @@ import { LoginUserComponent } from './pages/login-user/login-user.component';
     ComponentsModule,
     RouterModule.forChild([
       { path: 'create', component: CreateComponent },
-      { path: 'login', component: LoginComponent },
+      { path: 'login', component: MyComponentWrapperComponent },
       { path: 'login/:teamId', component: LoginComponent },
       { path: 'update-password/:teamId', component: UpdatePasswordComponent },
       { path: 'create-user', component: CreateUserComponent },
