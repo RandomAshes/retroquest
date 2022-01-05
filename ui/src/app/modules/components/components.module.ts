@@ -41,8 +41,7 @@ import { PageLogoComponent } from './page-logo/page-logo.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ContributorsComponent } from './contributors/contributors.component';
-// @ts-ignore
-import { MyComponentWrapperComponent } from '../boards/pages/my-react-page/MyReactComponentWrapper';
+import { ReactLoginPageWrapper } from '../../../react/pages/login/ReactLoginPageWrapper';
 
 @NgModule({
   imports: [
@@ -73,7 +72,7 @@ import { MyComponentWrapperComponent } from '../boards/pages/my-react-page/MyRea
     PageLogoComponent,
     LoginFormComponent,
     ContributorsComponent,
-    MyComponentWrapperComponent,
+    ReactLoginPageWrapper,
   ],
 
   exports: [
