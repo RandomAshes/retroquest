@@ -41,14 +41,14 @@ import { PageLogoComponent } from './page-logo/page-logo.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { ContributorsComponent } from './contributors/contributors.component';
+// @ts-ignore
+import { MyComponentWrapperComponent } from '../boards/pages/my-react-page/MyReactComponentWrapper';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule.forChild([
-      { path: 'styleguide', component: StyleGuidePageComponent },
-    ]),
+    RouterModule.forChild([{ path: 'styleguide', component: StyleGuidePageComponent }]),
     RecaptchaModule,
   ],
   declarations: [
@@ -73,6 +73,7 @@ import { ContributorsComponent } from './contributors/contributors.component';
     PageLogoComponent,
     LoginFormComponent,
     ContributorsComponent,
+    MyComponentWrapperComponent,
   ],
 
   exports: [
