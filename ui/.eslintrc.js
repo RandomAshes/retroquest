@@ -19,7 +19,7 @@ module.exports = {
   root: true,
   ignorePatterns: ['projects/**/*', 'jest.config.js', 'src/react/pages/login/ReactLoginPageWrapper.tsx'],
   extends: ['prettier', 'plugin:@typescript-eslint/recommended'],
-  plugins: ['unused-imports', 'cypress'],
+  plugins: ['unused-imports', 'cypress', 'simple-import-sort'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -30,6 +30,32 @@ module.exports = {
   rules: {
     semi: 2,
     'max-len': ['error', { code: 120 }],
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // Node.js builtins. You could also generate this regex if you use a `.js` config.
+          // For example: `^(${require("module").builtinModules.join("|")})(/|$)`
+          [
+            // eslint-disable-next-line max-len
+            '^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)',
+          ],
+          // Packages. `react` related packages come first.
+          ['^react', '^@?\\w'],
+          // Internal packages.
+          ['^(@|@company|@ui|components|utils|config|vendored-lib)(/.*|$)'],
+          // Side effect imports.
+          ['^\\u0000'],
+          // Parent imports. Put `..` last.
+          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+          // Style imports.
+          ['^.+\\.s?css$'],
+        ],
+      },
+    ],
+    'simple-import-sort/exports': 'error',
   },
   overrides: [
     {
