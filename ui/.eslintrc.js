@@ -17,7 +17,7 @@
 
 module.exports = {
   root: true,
-  ignorePatterns: ['projects/**/*', 'jest.config.js'],
+  ignorePatterns: ['projects/**/*', 'jest.config.js', 'src/react/pages/login/ReactLoginPageWrapper.tsx'],
   extends: ['prettier'],
   plugins: ['unused-imports', 'cypress'],
   parserOptions: {
@@ -61,6 +61,7 @@ module.exports = {
         'prefer-arrow/prefer-arrow-functions': 'off',
         'no-unused-vars': 'off',
         'unused-imports/no-unused-imports': 'error',
+        'max-len': 'off',
       },
     },
     {
