@@ -15,22 +15,24 @@
  * limitations under the License.
  */
 
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './pages/login/login.page';
-import { CreateComponent } from './pages/create/create.page';
 import { RouterModule } from '@angular/router';
+import { RecaptchaModule } from 'ng-recaptcha';
+
+import { ReactLoginPageWrapper } from '../../../react/pages/login/ReactLoginPageWrapper';
+import { ComponentsModule } from '../components/components.module';
+
 import { AppTitleComponent } from './components/app-title/app-title.component';
 import { BrandFooterComponent } from './components/brand-footer/brand-footer.component';
-import { RecaptchaModule } from 'ng-recaptcha';
-import { ComponentsModule } from '../components/components.module';
-import { FocusOnLoadDirective } from './pages/directives/focus-on-load.component';
-import { UpdatePasswordComponent } from './pages/update-password/update-password.page';
+import { CreateComponent } from './pages/create/create.page';
 import { CreateUserComponent } from './pages/create-user/create-user.component';
-import { UserViewComponent } from './pages/user-view/user-view.component';
+import { FocusOnLoadDirective } from './pages/directives/focus-on-load.component';
+import { LoginComponent } from './pages/login/login.page';
 import { LoginUserComponent } from './pages/login-user/login-user.component';
-import { ReactLoginPageWrapper } from '../../../react/pages/login/ReactLoginPageWrapper';
+import { UpdatePasswordComponent } from './pages/update-password/update-password.page';
+import { UserViewComponent } from './pages/user-view/user-view.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,7 @@ import { ReactLoginPageWrapper } from '../../../react/pages/login/ReactLoginPage
     RouterModule.forChild([
       { path: 'create', component: CreateComponent },
       { path: 'login', component: ReactLoginPageWrapper },
-      { path: 'login/:teamId', component: LoginComponent },
+      { path: 'login/:teamId', component: ReactLoginPageWrapper },
       { path: 'update-password/:teamId', component: UpdatePasswordComponent },
       { path: 'create-user', component: CreateUserComponent },
       { path: 'login-user', component: LoginUserComponent },
