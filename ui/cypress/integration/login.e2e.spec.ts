@@ -27,14 +27,26 @@ describe('Logging In', () => {
 
   before(() => {
     cy.createTeam(teamCredentials);
+  });
+
+  beforeEach(() => {
     cy.visit('/login');
     cy.contains('Sign in to your Team!');
+
+    cy.get('[data-testid=teamNameInput]').as('teamNameInput');
   });
 
   it('Navigates to team board after successful login', () => {
-    cy.get('[data-testid=teamNameInput]').type(teamCredentials.teamName);
+    cy.get('@teamNameInput').type(teamCredentials.teamName);
     cy.get('[data-testid=teamPasswordInput]').type(teamCredentials.password);
     cy.get('[data-testid=formSubmitButton]').click();
     cy.url().should('eq', Cypress.config().baseUrl + `/team/${teamCredentials.teamId}`);
+  });
+
+  it('Pre-populates team name', () => {
+    cy.get('@teamNameInput').should('have.value', '');
+
+    cy.visit(`/login/${teamCredentials.teamId}`);
+    cy.get('@teamNameInput').should('have.value', teamCredentials.teamName);
   });
 });
