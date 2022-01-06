@@ -29,7 +29,7 @@ module.exports = {
     ...angularPreset.moduleNameMapper,
     '\\.(scss|css|jpg|png|gif)$': '<rootDir>/src/file.mock.ts',
   },
-  setupFilesAfterEnv: ['./src/test.ts'],
+  setupFilesAfterEnv: ['./src/setupTests.ts'],
   collectCoverage: true,
   coverageReporters: ['html'],
   coverageDirectory: 'coverage',
