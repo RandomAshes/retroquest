@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Ford Motor Company
+ * Copyright (c) 2022 Ford Motor Company
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,52 +15,37 @@
  * limitations under the License.
  */
 
-export interface TeamCredentials {
-  teamName: string;
-  teamId: string;
-  password: string;
-  jwt: string;
-}
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+//
+//
+import '@testing-library/cypress/add-commands';
 
-export function teamBoardUrl(teamId: string): string {
-  console.log(`**** ${teamId} *****`);
-  return `/team/${teamId}`;
-}
+import TeamCredentials from './types/teamCredentials';
 
-export function goToTeamBoard(teamCredentials: TeamCredentials) {
-  cy.visit(teamBoardUrl(teamCredentials.teamId), {
-    headers: {
-      bearer: teamCredentials.jwt,
-    },
-  });
-}
-
-function enterText(selector: string, textToEnter: string) {
-  cy.get(selector).type(textToEnter);
-}
-
-function click(selector: string) {
-  cy.get(selector).click();
-}
-
-function login(teamCredentials: TeamCredentials) {
+Cypress.Commands.add('login', (teamCredentials: TeamCredentials) => {
   cy.visit('/login');
-  enterText('#teamNameInput', teamCredentials.teamName);
-  enterText('#teamPasswordInput', teamCredentials.password);
-  click('#signInButton');
-}
+  enterText('[data-testid=teamNameInput]', teamCredentials.teamName);
+  enterText('[data-testid=teamPasswordInput]', teamCredentials.password);
+  click('[data-testid=formSubmitButton]');
+});
 
-function createBoard(teamCredentials: TeamCredentials) {
+Cypress.Commands.add('createTeam', (teamCredentials: TeamCredentials) => {
   cy.visit('/create');
   enterText('#teamNameInput', teamCredentials.teamName);
   enterText('#teamPasswordInput', teamCredentials.password);
   enterText('#teamPasswordConfirmInput', teamCredentials.password);
   click('#createRetroButton');
-}
+});
 
-export function createTeamIfNecessaryAndLogin(
-  teamCredentials: TeamCredentials
-) {
+Cypress.Commands.add('createTeamIfNecessaryAndLogin', (teamCredentials: TeamCredentials) => {
   cy.request({
     url: `/api/team/login`,
     failOnStatusCode: false,
@@ -74,9 +59,17 @@ export function createTeamIfNecessaryAndLogin(
     console.log(response.body);
     if (response.status === 200) {
       teamCredentials.jwt = response.body;
-      login(teamCredentials);
+      cy.login(teamCredentials);
     } else {
-      createBoard(teamCredentials);
+      cy.createTeam(teamCredentials);
     }
   });
+});
+
+function click(selector: string) {
+  cy.get(selector).click();
+}
+
+function enterText(selector: string, textToEnter: string) {
+  cy.get(selector).type(textToEnter);
 }
