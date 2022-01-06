@@ -15,23 +15,22 @@
  * limitations under the License.
  */
 
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   static tokenKey = 'token';
   static tokenDuration = 1000 * 60 * 60 * 24 * 2;
 
-  static setToken (token): void {
+  static setToken(token: string): void {
     const expiresDate = new Date(Date.now() + AuthService.tokenDuration);
     const expires = expiresDate.toUTCString();
-    document.cookie = `${AuthService.tokenKey}=${token};expires=${expires};`;
+    document.cookie = `${AuthService.tokenKey}=${token};expires=${expires};path=/`;
   }
 
-  static getToken () {
+  static getToken(): string | null {
     let token = null;
     const cookie = document.cookie;
     const keyIndex = cookie.indexOf(`${AuthService.tokenKey}=`);
@@ -45,5 +44,4 @@ export class AuthService {
   static clearToken(): void {
     document.cookie = `${AuthService.tokenKey}=;expires=-99999999;`;
   }
-
 }
