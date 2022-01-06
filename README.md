@@ -54,10 +54,10 @@ SPRING_PROFILES_ACTIVE=local ./gradlew bootRun withH2
 The schema produced for H2 may not conform exactly to the Postgresql schema used in production.
 
 ### Docker
-Running the application locally with Postgresql requires a running instance of the Docker Postgresql container:
+Running the application locally with Postgresql requires a running instance of the Docker Postgresql container, which can be started from the ```./api``` directory:
 
 ```
-cd ./api && docker-compose up
+docker-compose up
 ```  
 
 Start the backend with Gradle:  
@@ -71,24 +71,16 @@ SPRING_PROFILES_ACTIVE=dockerdb ./gradlew bootRun withPostgres
 ### Frontend
 If you are only working on the backend, a static build will be accessible from [localhost:8080](http://localhost:8080) after running `yarn build-prod`
 
-Start the frontend with yarn for live development:  
+From the ```./ui``` directory, start the frontend with yarn for live development:  
 ```
 yarn start
 ```
 
 This will start the frontend with a proxy to direct all requests to localhost:8080 where the api is running. The application will start at [localhost:4200](http://localhost:4200)
 
+## Tests
 
-## Running the Backend Tests
-This project includes unit tests, API tests, and Selenium tests.
-
-The following Gradle targets will run the various test suites:
-
-```
-./gradlew test -- Java Unit Tests
-./gradlew apiTest -- API Level integration tests with and H2 database
-./gradlew apiTestDockerDb -- API Level integration tests with and production representative database
-```
+This project includes unit tests, API tests, and Cypress tests.
 
 To run both the backend api and unit tests at once:
 
@@ -102,7 +94,17 @@ To run both the backend api and unit tests at once against a production represen
 ./gradlew runAllTestsDockerDb
 ```
 
-## Running the Frontend Tests
+
+### API Tests
+
+The following Gradle targets will run the various test suites:
+
+```
+./gradlew test -- Java Unit Tests
+./gradlew apiTest -- API Level integration tests with and H2 database
+./gradlew apiTestDockerDb -- API Level integration tests with and production representative database
+```
+### UI Tests
 Navigate to the `ui` folder, making sure you've already followed the build steps for the frontend and run any of the following commands:
 
 ```
@@ -111,7 +113,7 @@ yarn unit-watch -- Runs all tests.  Reruns tests if changes are made.
 yarn unit-coverage -- Runs all tests, collects unit test coverage and closes
 ```
 
-## Running the E2E Tests
+### E2E Tests
 Start the database
 ```
 cd ./api && docker-compose up
