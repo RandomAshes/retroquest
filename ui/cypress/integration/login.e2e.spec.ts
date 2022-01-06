@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Ford Motor Company
+ * Copyright (c) 2022 Ford Motor Company
  * All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,11 +15,7 @@
  * limitations under the License.
  */
 
-import {
-  createTeamIfNecessaryAndLogin,
-  teamBoardUrl,
-  TeamCredentials,
-} from '../util/utils';
+import TeamCredentials from '../support/types/teamCredentials';
 
 describe('Logging In', () => {
   const teamCredentials = {
@@ -30,17 +26,15 @@ describe('Logging In', () => {
   } as TeamCredentials;
 
   before(() => {
-    createTeamIfNecessaryAndLogin(teamCredentials);
+    cy.createTeam(teamCredentials);
     cy.visit('/login');
+    cy.contains('Sign in to your Team!');
   });
 
   it('Navigates to team board after successful login', () => {
-    cy.get('#teamNameInput').type(teamCredentials.teamName);
-    cy.get('#teamPasswordInput').type(teamCredentials.password);
-    cy.get('#signInButton').click();
-    cy.url().should(
-      'eq',
-      Cypress.config().baseUrl + teamBoardUrl(teamCredentials.teamId)
-    );
+    cy.get('[data-testid=teamNameInput]').type(teamCredentials.teamName);
+    cy.get('[data-testid=teamPasswordInput]').type(teamCredentials.password);
+    cy.get('[data-testid=formSubmitButton]').click();
+    cy.url().should('eq', Cypress.config().baseUrl + `/team/${teamCredentials.teamId}`);
   });
 });

@@ -92,7 +92,7 @@
     "ajv": "^6.12.4",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
-    "cypress": "^6.8.0",
+    "cypress": "9.2.0",
     "cypress-angular-unit-test": "^3.6.1",
     "cypress-jest-adapter": "^0.1.1",
     "eslint": "^7.26.0",
