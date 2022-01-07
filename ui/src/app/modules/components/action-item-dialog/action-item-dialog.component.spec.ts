@@ -15,8 +15,9 @@
  * limitations under the License.
  */
 
-import { ActionItemDialogComponent } from './action-item-dialog.component';
 import { createMockEventEmitter } from '../../utils/testutils';
+
+import { ActionItemDialogComponent } from './action-item-dialog.component';
 
 describe('ActionItemDialogComponent', () => {
   let component: ActionItemDialogComponent;

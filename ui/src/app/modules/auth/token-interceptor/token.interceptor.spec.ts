@@ -15,8 +15,9 @@
  * limitations under the License.
  */
 
-import { TokenInterceptor } from './token.interceptor';
 import { AuthService } from '../auth.service';
+
+import { TokenInterceptor } from './token.interceptor';
 
 describe('TokenInterceptor', () => {
   const fakeToken = 'fake-token';

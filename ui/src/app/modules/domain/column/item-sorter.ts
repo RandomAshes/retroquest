@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import { Thought } from '../thought';
 import { ActionItem } from '../action-item';
+import { Thought } from '../thought';
 
 export type Item = Thought | ActionItem;
 

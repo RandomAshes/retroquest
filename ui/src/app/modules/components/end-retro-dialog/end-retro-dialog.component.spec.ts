@@ -15,8 +15,9 @@
  * limitations under the License.
  */
 
-import { EndRetroDialogComponent } from './end-retro-dialog.component';
 import { createMockEventEmitter } from '../../utils/testutils';
+
+import { EndRetroDialogComponent } from './end-retro-dialog.component';
 
 describe('EndRetroDialogComponent', () => {
   let component: EndRetroDialogComponent;

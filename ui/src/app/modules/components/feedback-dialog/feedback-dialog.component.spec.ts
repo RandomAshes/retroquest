@@ -15,8 +15,9 @@
  * limitations under the License.
  */
 
-import { FeedbackDialogComponent } from './feedback-dialog.component';
 import { createMockEventEmitter } from '../../utils/testutils';
+
+import { FeedbackDialogComponent } from './feedback-dialog.component';
 
 describe('DialogComponent', () => {
   let component: FeedbackDialogComponent;

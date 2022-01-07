@@ -16,6 +16,7 @@
  */
 
 import { Component, Input } from '@angular/core';
+
 import { Themes } from '../../domain/Theme';
 
 @Component({
@@ -40,10 +41,7 @@ export class FloatingCharacterCountdownComponent {
   }
 
   public charactersRemainingAreAboutToRunOut(): boolean {
-    return (
-      this.charactersRemaining() < this.charsAreRunningOutThreshold &&
-      !this.charactersRemainingHaveRunOut()
-    );
+    return this.charactersRemaining() < this.charsAreRunningOutThreshold && !this.charactersRemainingHaveRunOut();
   }
 
   public charactersRemainingHaveRunOut(): boolean {

@@ -15,8 +15,9 @@
  * limitations under the License.
  */
 
-import { Themes } from './domain/Theme';
 import { EventEmitter, Injectable } from '@angular/core';
+
+import { Themes } from './domain/Theme';
 
 @Injectable()
 export class DataService {

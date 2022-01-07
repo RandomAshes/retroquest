@@ -19,7 +19,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ActionBarComponent } from './action-bar.component';
 
-describe('ActionBarComponent', () => {
+describe.skip('ActionBarComponent', () => {
   let component: ActionBarComponent;
   let fixture: ComponentFixture<ActionBarComponent>;
 

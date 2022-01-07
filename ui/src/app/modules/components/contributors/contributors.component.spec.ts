@@ -15,10 +15,12 @@
  * limitations under the License.
  */
 
+import { Subject } from 'rxjs';
+
+import { Contributor } from '../../domain/contributor';
+
 import { ContributorsComponent } from './contributors.component';
 import { ContributorsService } from './contributors.service';
-import { Contributor } from '../../domain/contributor';
-import { Subject } from 'rxjs';
 
 describe('ContributorsComponent', () => {
   let component: ContributorsComponent;
@@ -27,10 +29,9 @@ describe('ContributorsComponent', () => {
 
   beforeEach(() => {
     mockContributorSubject = new Subject<Contributor[]>();
-    // @ts-ignore
     mockContrbutorsServerice = {
       getContributors: jest.fn().mockReturnValue(mockContributorSubject),
-    } as ContributorsService;
+    } as unknown as ContributorsService;
     component = new ContributorsComponent(mockContrbutorsServerice);
   });
 

@@ -16,8 +16,10 @@
  */
 
 import { ActivatedRouteSnapshot } from '@angular/router';
-import { TeamPageQueryParamGuard } from './team-page-query-param-guard';
+
 import { createMockRouter } from '../../utils/testutils';
+
+import { TeamPageQueryParamGuard } from './team-page-query-param-guard';
 
 describe('TeamPageQueryParamGuard', () => {
   let service: TeamPageQueryParamGuard;
@@ -35,9 +37,7 @@ describe('TeamPageQueryParamGuard', () => {
       teamId: fakeTeamId,
     };
 
-    const mockState = null;
-
-    const result = service.canActivate(mockNextRouteSnapshot, mockState);
+    const result = service.canActivate(mockNextRouteSnapshot);
 
     expect(result).toBeTruthy();
   });
@@ -48,11 +48,7 @@ describe('TeamPageQueryParamGuard', () => {
       teamId: '',
     };
 
-    const mockState = null;
-    await (service.canActivate(
-      mockNextRouteSnapshot,
-      mockState
-    ) as Promise<boolean>);
+    await (service.canActivate(mockNextRouteSnapshot) as Promise<boolean>);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['login']);
   });
 });

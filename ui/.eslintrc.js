@@ -93,7 +93,10 @@ module.exports = {
     {
       files: ['*.html'],
       extends: ['plugin:@angular-eslint/template/recommended'],
-      rules: {},
+      rules: {
+        'simple-import-sort/imports': 'off',
+        'simple-import-sort/exports': 'off',
+      },
     },
   ],
 };

@@ -15,17 +15,11 @@
  * limitations under the License.
  */
 
-import {
-  AfterContentChecked,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { AfterContentChecked, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+
 import { ActionItem, emptyActionItem } from '../../domain/action-item';
-import { ActionItemTaskComponent } from '../action-item-task/action-item-task.component';
 import { Themes } from '../../domain/Theme';
+import { ActionItemTaskComponent } from '../action-item-task/action-item-task.component';
 
 const ESC_KEY = 27;
 
@@ -46,8 +40,7 @@ export class ActionItemDialogComponent implements AfterContentChecked {
   @Input() theme: Themes = Themes.Light;
   @Input() readonly = false;
 
-  @Output() visibilityChanged: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() visibilityChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() messageChanged: EventEmitter<string> = new EventEmitter<string>();
   @Output() deleted: EventEmitter<ActionItem> = new EventEmitter<ActionItem>();
   @Output() completed: EventEmitter<boolean> = new EventEmitter<boolean>();

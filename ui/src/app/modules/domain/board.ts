@@ -16,6 +16,7 @@
  */
 
 import moment from 'moment';
+
 import { emptyThoughtWithColumn, Thought } from './thought';
 
 export class Board {

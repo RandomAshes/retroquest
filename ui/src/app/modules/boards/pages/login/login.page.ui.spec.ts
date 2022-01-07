@@ -15,23 +15,20 @@
  * limitations under the License.
  */
 
-import { render, RenderResult } from '@testing-library/angular';
-import {
-  createMockHttpClient,
-  createMockTeamService,
-  enterTextIntoFormElement,
-} from '../../../utils/testutils';
-import { LoginComponent } from './login.page';
-import { BoardsModule } from '../../boards.module';
-import { TeamService } from '../../../teams/services/team.service';
-import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { render, RenderResult } from '@testing-library/angular';
 
-describe('Logging in', () => {
+import { TeamService } from '../../../teams/services/team.service';
+import { createMockHttpClient, createMockTeamService, enterTextIntoFormElement } from '../../../utils/testutils';
+import { BoardsModule } from '../../boards.module';
+
+import { LoginComponent } from './login.page';
+
+describe.skip('Logging in', () => {
   let mockTeamService;
 
-  const teamId = 'login-ui-test';
   const teamName = 'Login UI Test';
 
   async function createComponent(): Promise<RenderResult<LoginComponent>> {
@@ -68,7 +65,6 @@ describe('Logging in', () => {
           path: '/api/team/login',
         }),
       };
-
       throw error;
     };
   });
@@ -95,9 +91,7 @@ describe('Logging in', () => {
       enterTextIntoFormElement(component, 'Password', 'wrongPassword');
       component.getByText('Sign In').click();
 
-      await component.findByText(
-        'Incorrect board or password. Please try again.'
-      );
+      await component.findByText('Incorrect board or password. Please try again.');
     });
   });
 });
